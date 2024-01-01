@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+    <body>
+        {% block nav %}{% include 'djangoapp/navbar.html' %}{% endblock nav %}
+        <div class="bg-white">
+            <div class="container py-2">
+                <div class="row h-25 align-items-center py-2">
+                    <div class="col-lg-6">
+                        <h1 class="display-4">Signup</h1>
+                        <form action="{% url 'djangoapp:registration' %}"  method="post">
+                            {% csrf_token %}
+                            <div class="container">
+                                <div class="form-group">
+                                    <label for="username"><b>User Name</b></label>
+                                    <input type="text" class="form-control" placeholder="Enter User Name: " name="username" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="firstname"><b>First Name</b></label>
+                                    <input type="text" class="form-control" placeholder="Enter First Name: " name="firstname" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastname"><b>Last Name</b></label>
+                                    <input type="text" class="form-control" placeholder="Enter Last Name: " name="lastname" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="psw"><b>Password</b></label>
+                                    <input type="password" class="form-control" placeholder="Enter Password: " name="psw" required>
+                                </div>
+                                <button class="button" type="submit">Sign Up</button>
+                            </div>
+                          </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
